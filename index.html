@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+
+<div id="selected-input">
+  <p>Клиника Доктора Пеля на Васильвском</p>
+  <div class="container">
+    <div style='position: relative;'>
+      <div v-for="item in selectItem" class='choose'>
+        <p>{{item.message}}</p>
+        <div class="del" v-on:click='delItem(item)'></div>
+      </div>
+      <input v-model="input" placeholder=" Добавить услугу">
+      <div class="loading hidden" id='loading'></div>
+      <div class="notFound hidden">Совпадений не найдено</div>
+    </div>
+
+    <select multiple class="search">
+      <option v-for="item in arr" v-bind:value="item.message"  v-on:click='addItem(item.id,item.message)'>{{item.message}}</option>
+    </select>
+  </div>
+<hr />
+  <div v-for="item in search">{{item.message}}
+  </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<script src="js/main.js"></script>
+<script src="js/focus.js"></script>
+</body>
+</html>
